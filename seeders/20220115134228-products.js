@@ -62,6 +62,14 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          name: "Slim-Jacket",
+          description: "Nice jacket",
+          price: 50,
+          categoryId: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
           name: "Ck",
           description: "Nice t-shirt",
           price: 50,
