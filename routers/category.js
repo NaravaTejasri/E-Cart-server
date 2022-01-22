@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 // GET Categories by id - see all the products of category(id).
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+  //console.log(id);
 
   if (isNaN(parseInt(id))) {
     return res.status(400).send({ message: "Category id is not a number" });
@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
   const categories = await Category.findByPk(id, {
     include: [Product],
   });
-  console.log("category", categories);
+  //console.log("category", categories);
 
   if (categories === null) {
     return res.status(404).send({ message: "Category not found" });
@@ -47,7 +47,7 @@ router.get("/product/:id", async (req, res) => {
   }
 
   const product = await Product.findByPk(id);
-  console.log("product", product);
+  //console.log("product", product);
 
   if (product === null) {
     return res.status(404).send({ message: "product not found" });
