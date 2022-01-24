@@ -14,6 +14,11 @@ module.exports = {
       },
       shippingAddress: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      paymentMethod: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

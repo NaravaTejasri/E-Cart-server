@@ -6,6 +6,7 @@ const { PORT } = require("./config/constants");
 
 const authRouter = require("./routers/auth");
 const categoryRouter = require("./routers/category");
+const orderRouter = require("./routers/order");
 
 // Create an express app
 const app = express();
@@ -35,6 +36,10 @@ app.use(bodyParserMiddleWare);
 
 app.use("/auth", authRouter);
 app.use("/categories", categoryRouter);
+app.use("/orders", orderRouter);
+app.get("/api/config/paypal", (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || "sb");
+});
 
 // POST endpoint which requires a token for testing purposes, can be removed
 app.post("/authorized_post_request", authMiddleWare, (req, res) => {

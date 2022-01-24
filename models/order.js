@@ -22,7 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      shippingAddress: DataTypes.STRING,
+      shippingAddress: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      paymentMethod: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,
