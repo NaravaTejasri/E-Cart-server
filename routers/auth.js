@@ -4,6 +4,7 @@ const { toJWT } = require("../auth/jwt");
 const authMiddleware = require("../auth/middleware");
 const { SALT_ROUNDS } = require("../config/constants");
 
+const Category = require("../models").category;
 const User = require("../models/").user;
 
 const router = new Router();
@@ -72,10 +73,16 @@ router.post("/signup", async (req, res) => {
 // The /me endpoint can be used to:
 // - get the users email & name using only their token
 // - checking if a token is (still) valid
+// The /me endpoint can be used to:
+// - get the users email & name using only their token
+// - checking if a token is (still) valid
 router.get("/me", authMiddleware, async (req, res) => {
+  const user = await User.findOne({
+    where: { email },
+  });
   // don't send back the password hash
   delete req.user.dataValues["password"];
-  res.status(200).send({ ...req.user.dataValues, space });
+  res.status(200).send({ ...req.user.dataValues, user });
 });
 
 module.exports = router;

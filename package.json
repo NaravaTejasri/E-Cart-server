@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node index.js",
     "dev": "npx nodemon .",
     "initialize": "npm i && npm run resetDB && npm run start",
     "initdev": "npm run migrate && npm run seed",
